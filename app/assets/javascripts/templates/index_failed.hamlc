@@ -1,0 +1,3 @@
+<h1>Getting index from CMS server failed!</h1>
+<p>Did you start the CMS server?</p>
+<p>Did you configure the sinatra app to allow cross site HTTP requests?</p>

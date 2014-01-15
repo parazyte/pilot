@@ -1,3 +1,5 @@
 Pilot::Application.routes.draw do
-  root :to => 'welcome#index'
+  mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+
+  root :to => 'dashboard#index'
 end
