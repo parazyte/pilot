@@ -5,9 +5,8 @@
       - for game in @games
         %tr
           %td
-            != game.name
-          %td
-            %a{href: "game/#{game.id}"}!= game.url
+            %a{href: "games/#{game.id}?url=#{game.url}"}
+              != game.name
     - else
       %em
         Det finns inga spel att visa.

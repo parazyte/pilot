@@ -16,7 +16,7 @@ class ShowGamesIndexController
       success: (data) =>
         @_setPageTitle data.page.header.text
         @_setNavbarImage data.page.header.image
-        @_renderPageContent "index",
+        @_renderPageContent "games_index",
           games: data.page.content.games
         @_setPageFooter data.page.footer.text
 
