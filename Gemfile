@@ -41,7 +41,8 @@ end
 
 gem 'jquery-rails'
 gem 'awesome_print'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.0.3.0'
+
 group :development do
   gem 'rails_layout'
 end

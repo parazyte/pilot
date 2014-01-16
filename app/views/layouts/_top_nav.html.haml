@@ -2,6 +2,3 @@
   .navbar-inner
     .container
       = link_to SystemVersion.latest.name, root_path, class: 'brand', tabindex: "-1"
-
-      %form#main_search.navbar-search.pull-right{action: "/search"}
-        %input.search-query{placeholder: "Sök", name: "q", type: 'text'}

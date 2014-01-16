@@ -12,6 +12,6 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require hamlcoffee
 #= require bootstrap
+#= require hamlcoffee
 #= require_tree .
