@@ -3,6 +3,4 @@ Pilot::Application.routes.draw do
 
   # Landing page
   root :to => 'dashboard#index'
-
-  resources :games, only: [:show]
 end

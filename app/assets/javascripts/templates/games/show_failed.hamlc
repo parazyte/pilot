@@ -1,0 +1,5 @@
+%h4
+  %em
+    Error: Getting game from CMS server failed!
+%p
+  The url that could not be served:
