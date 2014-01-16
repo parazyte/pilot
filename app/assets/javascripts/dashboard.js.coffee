@@ -3,10 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $(document).ready ->
   if $('body.dashboard').is('*')
+    el = $('body.dashboard #javascript')
     $.ajax
       url: "http://0.0.0.0:5000/api/v1/index.json"
-      success: (data) ->
-        $('body.dashboard .container .content').html(data.page.header.text)
-      error: (e) ->
-        $('body.dashboard .container .content').html(JST["index_failed"]())
+      success: (data) =>
+        el.html(data.page.header.text)
+      error: (e) =>
+        el.html(JST["index_failed"]())
 

@@ -1,15 +1,32 @@
-// import the CSS framework
 @import "bootstrap";
+@import "bootstrap_variables";
+
+body {
+  padding-top: 85px;
+  font-family: $baseFontFamily;
+  font-size:   $baseFontSize;
+  font-weight: $baseFontWeight;
+  color:       $textColor;
+}
+
+footer {
+  margin-top:  10px;
+  font-family: $footerFontFamily;
+  font-size:   $footerFontSize;
+  font-weight: $footerFontWeight;
+  color:       $textColor;
+}
 
 // make all images responsive by default
 img {
   @extend .img-responsive;
   margin: 0 auto;
-  }
+}
+
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
-  }
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
@@ -17,29 +34,26 @@ img {
 .column {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .form {
   @extend .col-md-6;
-  }
+}
+
 .form-centered {
   @extend .col-md-6;
   @extend .text-center;
-  }
+}
+
 .submit {
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-lg;
-  }
+}
+
 // apply styles to HTML elements
 // to make views framework-neutral
-main {
-  @extend .container;
-  background-color: #eee;
-  padding-bottom: 80px;
-  width: 100%;
-  margin-top: 51px; // accommodate the navbar
-  }
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
