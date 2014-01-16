@@ -1,3 +1,10 @@
-<h1>Getting index from CMS server failed!</h1>
-<p>Did you start the CMS server?</p>
-<p>Did you configure the sinatra app to allow cross site HTTP requests?</p>
+%h4
+  %em
+    Error: Getting index from CMS server failed!
+%p
+  Checklist:
+%ul
+  %li
+    Did you start the CMS server?
+  %li
+    Did you configure the sinatra app to allow cross site HTTP requests?

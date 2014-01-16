@@ -1,0 +1,4 @@
+- for game in @games
+  %tr
+    %td!= game.name
+    %td!= game.url
