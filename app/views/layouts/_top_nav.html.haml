@@ -1,4 +1,5 @@
 .navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to SystemVersion.latest.name, root_path, class: 'brand', tabindex: "-1"
+      = link_to SystemVersion.latest.name, root_path, class: 'brand'
+      %img#navbar_image

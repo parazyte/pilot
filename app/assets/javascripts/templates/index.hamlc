@@ -1,8 +1,13 @@
-- if @games.length > 0
-  - for game in @games
-    %tr
-      %td!= game.name
-      %td
-        %a{href: "game/#{game.id}"}!= game.url
-- else
-  %em Det finns inga spel att visa.
+%table.table.table-bordered.table-striped
+  %thead
+  %tbody
+    - if @games.length > 0
+      - for game in @games
+        %tr
+          %td
+            != game.name
+          %td
+            %a{href: "game/#{game.id}"}!= game.url
+    - else
+      %em
+        Det finns inga spel att visa.
