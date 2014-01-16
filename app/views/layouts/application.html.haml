@@ -1,4 +1,4 @@
-!!! 5
+!!!
 %html
   %head
     = render partial: 'layouts/header'
@@ -8,6 +8,7 @@
       .content
         .row
           .span12
+            = render 'layouts/messages'
             = yield
 
-      = render(partial: 'layouts/footer')
+      = render partial: 'layouts/footer'
