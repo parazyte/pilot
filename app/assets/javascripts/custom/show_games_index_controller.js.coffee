@@ -15,11 +15,7 @@ class ShowGamesIndexController
     @body.delegate 'a', 'click', (e) =>
       if cmsUrl = $(e.target).data("url")
         e.preventDefault()
-        new ShowGameController(
-          cmsHost: @cmsHost
-          bodyEl:  @body
-          cmsUrl:  cmsUrl
-        ).start()
+        window.location = e.target.href + '?cms_url=' + cmsUrl
 
   # private
 

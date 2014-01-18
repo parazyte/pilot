@@ -5,6 +5,8 @@ class ShowGameController
     include this, ControllerCommon
     @cmsHost      = options.cmsHost
     @cmsUrl       = options.cmsUrl
+    @title        = options.headerEl
+    @navbarImage  = options.navbarImageEl
     @body         = options.bodyEl
 
   start: ->
@@ -15,6 +17,8 @@ class ShowGameController
       url: @cmsHost + @cmsUrl
 
       success: (data) =>
+        @setPageTitle data.page.header.text
+        @setNavbarImage data.page.header.image
         @renderPageContent "games/show",
           game: data.page.content
 

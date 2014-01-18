@@ -41,6 +41,7 @@ end
 
 gem 'jquery-rails'
 gem 'awesome_print'
+gem 'debugger'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :development do

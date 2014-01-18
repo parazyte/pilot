@@ -5,7 +5,7 @@
       - for game in @games
         %tr
           %td
-            %a{href: "games/#{game.id}", "data-url": game.url}
+            %a{href: "games", "data-url": game.url}
               != game.name
     - else
       %em
