@@ -7,9 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 
-# For haml views
-gem 'haml-rails'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -25,6 +22,9 @@ group :assets do
   gem 'execjs'
 end
 
+# For haml views
+gem 'haml-rails'
+
 group :development, :test do
   # Specs
   gem 'rspec-rails', '~> 3.0.0.beta'
@@ -34,16 +34,18 @@ group :development, :test do
   gem 'jasminerice'
 end
 
+# Better rails specs
 group :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'timecop'
 end
 
+# Bootstrap and jquery
 gem 'jquery-rails'
-gem 'awesome_print'
-gem 'debugger'
 gem 'bootstrap-sass', '~> 3.0.3.0'
 
 group :development do
+  # Bootstrap sass
+  # https://github.com/RailsApps/rails_layout
   gem 'rails_layout'
 end
