@@ -7,8 +7,8 @@ $(document).ready ->
   if $('body.games.show').is('*')
     new ShowGameController(
       cmsHost:       "http://localhost:5000"
-      cmsUrl:        $('.url').text().trim()
-      navbarImageEl: $('#navbar_image')
       headerEl:      $('head title')
+      pageImageEl:   $('#game_image')
       bodyEl:        $('#game_show')
+      cmsUrl:        $('.url').text().trim()
     ).start()

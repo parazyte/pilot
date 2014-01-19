@@ -2,4 +2,9 @@
   %em
     Error: Getting game from CMS server failed!
 %p
-  The url that could not be served:
+  Checklist:
+%ul
+  %li
+    Did you start the CMS server?
+  %li
+    Did you configure the sinatra app to allow cross site HTTP requests?

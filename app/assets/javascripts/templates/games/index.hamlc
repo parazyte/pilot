@@ -1,8 +1,10 @@
+%h1
+  != @data.page.header.text
 %table.table.table-bordered.table-striped
   %thead
   %tbody
-    - if @games.length > 0
-      - for game in @games
+    - if @data.page.content.games.length > 0
+      - for game in @data.page.content.games
         %tr
           %td
             %a{href: "games", "data-url": game.url}

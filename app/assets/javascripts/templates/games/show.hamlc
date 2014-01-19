@@ -1,2 +1,5 @@
+%h1
+  != @data.page.header.text
 %p
-  != @game.main_text
+  != @data.page.content.main_text
+%a{href: "/"} Back

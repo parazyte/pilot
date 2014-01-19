@@ -8,7 +8,7 @@ $(document).ready ->
     new ShowGamesIndexController(
       cmsHost:       "http://localhost:5000"
       headerEl:      $('head title')
-      navbarImageEl: $('#navbar_image')
+      pageImageEl:   $('#index_image')
       bodyEl:        $('#game_index')
       footerEl:      $('footer')
     ).start()

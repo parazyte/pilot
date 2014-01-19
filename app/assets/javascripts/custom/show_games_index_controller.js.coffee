@@ -6,7 +6,7 @@ class ShowGamesIndexController
     include this, ControllerCommon
     @cmsHost      = options.cmsHost
     @title        = options.headerEl
-    @navbarImage  = options.navbarImageEl
+    @pageImage    = options.pageImageEl
     @body         = options.bodyEl
     @footer       = options.footerEl
 
@@ -24,11 +24,7 @@ class ShowGamesIndexController
       url: @cmsHost + "/api/v1/index.json"
 
       success: (data) =>
-        @setPageTitle data.page.header.text
-        @setNavbarImage data.page.header.image
-        @renderPageContent "games/index",
-          games: data.page.content.games
-        @setPageFooter data.page.footer.text
+        @render "games/index", data
 
       error: (e) =>
         @renderPageContent "games/index_failed"

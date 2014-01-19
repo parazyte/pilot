@@ -4,5 +4,5 @@ Pilot::Application.routes.draw do
   # Landing page
   root :to => 'dashboard#index'
 
-  get '/games/', to: 'games#show'
+  get '/games', to: 'games#show'
 end
