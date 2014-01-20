@@ -8,7 +8,7 @@
 6. configure the sinatra server to allow cross-site HTTP requests, see note below
 7. start sinatra app
 
-note:
+IMPORTANT NOTE:
 * The sinatra server does not allow cross site request:
 * It does not allow $.ajax requests, not even with jsonp:
 ```
