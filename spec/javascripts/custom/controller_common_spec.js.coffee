@@ -1,16 +1,18 @@
 describe "ControllerCommon", ->
   beforeEach ->
     include this, ControllerCommon
+    loadFixtures('index_fixture.html')
+    @html = $('#index_fixture')
 
   describe 'setPageTitle', ->
     it "updates the text of the @title element", ->
-      @title = $('head title')
+      @title = @html.find('title')
       @setPageTitle("My title")
       expect(@title.text()).toMatch(/My title/)
 
   describe 'setPageFooter', ->
     it "updates the text of the @footer element", ->
-      @footer = $('head title')
+      @footer = @html.find('footer')
       @setPageFooter("My footer")
       expect(@footer.text()).toMatch(/My footer/)
 
@@ -21,6 +23,6 @@ describe "ControllerCommon", ->
 
   describe 'setPageImage', ->
     it "updates the src attr of the @pageImage element", ->
-      @pageImage = $('head title')
+      @pageImage = @html.find('#index_image')
       @setPageImage("http://localhost/image.jpg")
       expect(@pageImage.attr("src")).toBe("http://localhost/image.jpg")
