@@ -16,9 +16,6 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-
-  # For JST hamlc templates
-  gem 'haml_coffee_assets'
   gem 'execjs'
 end
 
@@ -28,10 +25,6 @@ gem 'haml-rails'
 group :development, :test do
   # Specs
   gem 'rspec-rails', '~> 3.0.0.beta'
-  # For javascript unit testing
-  gem 'jasmine-rails'
-  # For running tests in the browser
-  gem 'jasminerice'
 end
 
 # Better rails specs
