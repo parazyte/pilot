@@ -42,3 +42,5 @@ group :development do
   # https://github.com/RailsApps/rails_layout
   gem 'rails_layout'
 end
+
+gem 'debugger'

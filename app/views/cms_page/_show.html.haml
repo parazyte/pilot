@@ -1,0 +1,14 @@
+.page
+  .header
+    %img{src: page.header.try(:image_path)}
+    %h1= page.header.try(:text) or "Header missing"
+    .content
+      %h2= page.content.try(:main_text) or "Main text missing"
+      %table.games
+        %tbody
+          - if page.content.try(:games)
+            - for game in page.content.try(:games)
+              = render partial: 'cms_page/game_row', locals: { game: game }
+
+  .footer
+    %p= page.footer.try(:text) or "Footer missing"
