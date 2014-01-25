@@ -17,4 +17,8 @@
         %a= link_to "Back", cms_page_path(page.parent)
       %p= page.footer.try(:text)
 - else
-  %em No cms data appears to have been imported
+  %em
+    No cms data appears to have been imported, please open
+    %a{href: "http://localhost:3000/resque/schedule"}
+      resque
+    and queue a job
