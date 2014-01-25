@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140116081405) do
+ActiveRecord::Schema.define(:version => 20140125205555) do
+
+  create_table "cms_contents", :force => true do |t|
+    t.string   "main_text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cms_footers", :force => true do |t|
+    t.string   "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cms_headers", :force => true do |t|
+    t.string   "text"
+    t.string   "image_path"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cms_pages", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.string   "cms_url"
+    t.integer  "header_id"
+    t.integer  "content_id"
+    t.integer  "footer_id"
+    t.integer  "parent_content_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "system_versions", :force => true do |t|
     t.integer  "major"

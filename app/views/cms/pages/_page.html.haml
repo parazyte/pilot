@@ -1,0 +1,24 @@
+- if page
+  .page
+    .header
+      %img{src: page.header.try(:image_path)}
+      %h1= page.header.try(:text) or "Header missing"
+      .content
+        %h2= page.content.try(:main_text)
+        %table.games
+          %tbody
+            - if page.content.try(:items)
+              - for item in page.content.try(:items)
+                %tr
+                  %td
+                    %a= link_to item.name, cms_page_path(item)
+    .footer
+      - if page.has_parent?
+        %a= link_to "Back", cms_page_path(page.parent)
+      %p= page.footer.try(:text)
+- else
+  %em
+    No cms data appears to have been imported, please open
+    %a{href: "http://localhost:3000/resque/schedule"}
+      resque
+    and queue a job

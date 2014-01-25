@@ -1,5 +1,0 @@
-%h1
-  != @data.page.header.text
-%p
-  != @data.page.content.main_text
-%a{href: "/"} Back
