@@ -11,58 +11,63 @@ class Cms::SyncJob
     self.new.perform
   end
 
-  private
-
   def perform
     if page = fetch_content(API + INDEX)["page"]
-      destroy_all_cms_data
-      index = build_index(page)
+      index = build_or_update_index(page)
       index.save!
     end
   end
 
-  def build_index(data)
-    index = Cms::Page::Index.new(cms_url: INDEX)
+  private
+
+  def build_or_update_index(data)
+    index = Cms::Page::Index.first_or_initialize(cms_url: INDEX)
     build_cms_page(index, data)
     index
   end
 
-  def build_item(game)
-    url = game["url"]
-    item = Cms::Page::Item.new(name: game["name"], cms_url: url)
-    if item_page = fetch_content(url)["page"]
-      build_cms_page(item, item_page)
+  def build_cms_page(page, data)
+    process_header(page,  data["header"])  if data["header"]
+    process_content(page, data["content"]) if data["content"]
+    process_footer(page,  data["footer"])  if data["footer"]
+  end
+
+  def process_header(page, header)
+    attributes = { text: header["text"], image_path: header["image"] }
+    page.header ? page.header.update_attributes(attributes) : page.build_header(attributes)
+  end
+
+  def process_content(page, content)
+    games = content["games"]
+    attributes = { main_text: content["main_text"] }
+    page.content ? page.content.update_attributes(attributes) : page.build_content(attributes)
+
+    games.try(:each) do |game|
+      item = build_or_update_item(game)
+      page.content.items << item
     end
+  end
+
+  def build_or_update_item(game)
+    url = game["url"]
+
+    item = if (existing = Cms::Page::Item.find_by_cms_url(url))
+      existing.update_attributes(name: game["name"])
+      existing
+    else
+      Cms::Page::Item.new(name: game["name"], cms_url: url)
+    end
+
+    if page = fetch_content(url)["page"]
+      build_cms_page(item, page)
+    end
+
     item
   end
 
-  def build_cms_page(page, data)
-    build_header(page,  data["header"])
-    build_content(page, data["content"])
-    build_footer(page,  data["footer"])
-  end
-
-  def build_header(page, header)
-    page.build_header(text: header["text"], image_path: header["image"]) if header
-  end
-
-  def build_content(page, content)
-    if content
-      page.build_content(main_text: content["main_text"])
-
-      content["games"].try(:each) do |game|
-        item = build_item(game)
-        page.content.items << item
-      end
-    end
-  end
-
-  def build_footer(page, footer)
-    page.build_footer(text: footer["text"]) if footer
-  end
-
-  def destroy_all_cms_data
-    Cms::Page.destroy_all
+  def process_footer(page, footer)
+    attributes = { text: footer["text"] }
+    page.footer ? page.footer.update_attributes(attributes) : page.build_footer(attributes)
   end
 
   def fetch_content(path)
