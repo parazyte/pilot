@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CmsPagesController do
+describe Cms::PagesController do
   before :each do
     @index = Cms::Page::Index.create(cms_url: "index.json")
     @item  = Cms::Page::Item.create(name: "Game1", cms_url: "game1.json")
@@ -8,7 +8,7 @@ describe CmsPagesController do
 
   context "GET index" do
     it "should be root" do
-      { get: "/" }.should route_to(controller: 'cms_pages', action: 'index')
+      { get: "/" }.should route_to(controller: 'cms/pages', action: 'index')
     end
 
     it "routes successfully" do
