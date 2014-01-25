@@ -1,6 +1,6 @@
 cms_import:
   cron: "0 2 * * * "
-  class: CmsPage::Job
+  class: Cms::SyncJob
   queue: normal
-  description: "Import the data from the CMS"
+  description: "Import the page/content data from the CMS"
   rails_env: development, test

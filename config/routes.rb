@@ -3,7 +3,9 @@ Pilot::Application.routes.draw do
   mount Resque::Server.new, at: '/resque'
 
   # Landing page
-  root :to => 'cms_pages#index'
+  root :to => 'cms/pages#index'
 
-  resources :cms_pages
+  namespace :cms do
+    resources :pages, only: [:show, :index]
+  end
 end

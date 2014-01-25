@@ -1,4 +1,4 @@
-class CmsPagesController < ApplicationController
+class Cms::PagesController < ApplicationController
   def index
     @cms_page = Cms::Page.find_by_cms_url("index.json")
   end

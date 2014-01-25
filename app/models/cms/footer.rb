@@ -1,6 +1,4 @@
 class Cms::Footer < ActiveRecord::Base
+  include Cms
   attr_accessible :text
-  def self.table_name_prefix
-    'cms_'
-  end
 end

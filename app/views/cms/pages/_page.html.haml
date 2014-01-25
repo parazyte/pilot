@@ -3,7 +3,7 @@
     %img{src: page.header.try(:image_path)}
     %h1= page.header.try(:text) or "Header missing"
     .content
-      %h2= page.content.try(:main_text) or "Main text missing"
+      %h2= page.content.try(:main_text)
       %table.games
         %tbody
           - if page.content.try(:items)
@@ -14,4 +14,4 @@
   .footer
     - if page.has_parent?
       %a= link_to "Back", cms_page_path(page.parent)
-    %p= page.footer.try(:text) or "Footer missing"
+    %p= page.footer.try(:text)
