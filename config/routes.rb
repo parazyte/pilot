@@ -1,8 +1,9 @@
 Pilot::Application.routes.draw do
   mount JasmineRails::Engine => '/specs' if defined?(JasmineRails)
+  mount Resque::Server.new, at: '/resque'
 
   # Landing page
-  root :to => 'dashboard#index'
+  root :to => 'cms_pages#index'
 
-  resources :games
+  resources :cms_pages
 end

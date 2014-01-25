@@ -3,3 +3,4 @@ class Game < ActiveRecord::Base
   belongs_to :content
   attr_accessible :name, :url
 end
+

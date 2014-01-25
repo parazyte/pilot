@@ -6,9 +6,10 @@
       %h2= page.content.try(:main_text) or "Main text missing"
       %table.games
         %tbody
-          - if page.content.try(:games)
-            - for game in page.content.try(:games)
-              = render partial: 'cms_page/game_row', locals: { game: game }
-
+          - if page.content.try(:items)
+            - for item in page.content.try(:items)
+              %tr
+                %td
+                  %a= link_to item.name, cms_page_path(item)
   .footer
     %p= page.footer.try(:text) or "Footer missing"

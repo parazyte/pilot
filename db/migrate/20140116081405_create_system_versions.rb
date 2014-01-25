@@ -1,5 +1,5 @@
 class CreateSystemVersions < ActiveRecord::Migration
-  def up
+  def change
     create_table :system_versions do |t|
       t.integer :major
       t.integer :minor

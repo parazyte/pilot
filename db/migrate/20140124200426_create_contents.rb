@@ -1,6 +1,6 @@
 class CreateContents < ActiveRecord::Migration
   def change
-    create_table :contents do |t|
+    create_table :cms_contents do |t|
       t.string  "main_text"
       t.timestamps
     end
