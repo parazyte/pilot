@@ -15,10 +15,12 @@
 15. Any changes in server.rb will be seen here after the resque job has been run (scheduled to do so every so often, see resque_schedule.yml)
 
 IMPORTANT NOTE:
-* The sinatra server does not allow cross site request:
-* It does not allow $.ajax requests, not even with jsonp:
+* The sinatra server does not allow connection from my resque job:
 ```
-  W, [2014-01-15T21:28:24.735104 #7991]  WARN -- : attack prevented by Rack::Protection::JsonCsrf
+Connection refused - connect(2)
+/Users/xxx/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/2.0.0/net/http.rb:878:in 'initialize'
+...
+/Users/xxx/.rvm/rubies/ruby-2.0.0-p195/lib/ruby/2.0.0/open-uri.rb:34:in 'open'
+/Users/xxx/cms/pilot/app/models/cms/sync_job.rb:74:in 'fetch_content'
 ```
-* This would require quite a bit of work on the server app.
 * LONG STORY SHORT: I just added `headers( "Access-Control-Allow-Origin" => "*" )` to get on with my life and get to the fun part, and worry about security later when it is in production :-)
