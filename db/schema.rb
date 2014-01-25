@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140124200447) do
+ActiveRecord::Schema.define(:version => 20140125143300) do
 
   create_table "cms_contents", :force => true do |t|
     t.string   "main_text"
@@ -42,15 +42,6 @@ ActiveRecord::Schema.define(:version => 20140124200447) do
     t.integer  "parent_content_id"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-  end
-
-  create_table "games", :force => true do |t|
-    t.string   "name"
-    t.string   "url"
-    t.integer  "cms_page_id"
-    t.integer  "content_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
   end
 
   create_table "system_versions", :force => true do |t|
