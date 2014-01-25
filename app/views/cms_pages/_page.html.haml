@@ -12,4 +12,6 @@
                 %td
                   %a= link_to item.name, cms_page_path(item)
   .footer
+    - if page.has_parent?
+      %a= link_to "Back", cms_page_path(page.parent)
     %p= page.footer.try(:text) or "Footer missing"
