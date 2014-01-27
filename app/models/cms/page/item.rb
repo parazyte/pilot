@@ -5,7 +5,7 @@ class Cms::Page::Item < Cms::Page
   # Instance methods
 
   def has_parent?
-    respond_to?(:parent_content) && parent_content
+    parent_content.present?
   end
 
   def parent
